@@ -95,7 +95,7 @@ size.
 - [x] **1.3 — Strip it back to my own page.** Delete the demo content and write
       the smallest component and stylesheet that are actually mine. *See: a page
       with my words on it and nothing I did not choose.*
-- [ ] **1.4 — Get a canvas on screen and paint it.** Add a `<canvas>`, reach for
+- [x] **1.4 — Get a canvas on screen and paint it.** Add a `<canvas>`, reach for
       its 2D drawing context, fill it with a colour. *See: a rectangle of colour
       I chose.*
 - [ ] **1.5 — Size the canvas honestly.** Handle the difference between the

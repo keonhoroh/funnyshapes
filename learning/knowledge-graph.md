@@ -51,9 +51,9 @@ planning on 2026-08-07.
 
 | Status | Count |
 |---|---|
-| seed | 45 |
-| introduced | 23 |
-| practicing | 1 |
+| seed | 41 |
+| introduced | 24 |
+| practicing | 4 |
 | understood | 0 |
 
 ---
@@ -62,7 +62,7 @@ planning on 2026-08-07.
 
 | Concept | Status | Introduced | Reviewed | Evidence |
 |---|---|---|---|---|
-| Variables, `const` vs `let`, scope | seed | — | — | → S1 |
+| Variables, `const` vs `let`, scope | introduced | 2026-08-07 | 2026-08-07 | Explained `const` as a name that can't be reassigned, using the `canvasRef` line as the live example |
 | Types and type annotations | introduced | 2026-08-07 | 2026-08-07 | Said TypeScript "is quick to point out errors in my code" |
 | Type inference vs explicit types | seed | — | — | → S1 |
 | Functions, parameters, return values | seed | — | — | → S1 |
@@ -104,15 +104,15 @@ planning on 2026-08-07.
 | Concept | Status | Introduced | Reviewed | Evidence |
 |---|---|---|---|---|
 | The DOM as a tree of elements | seed | — | — | → S1 |
-| Canvas element vs its 2D drawing context | seed | — | — | → S1 |
+| Canvas element vs its 2D drawing context | practicing | 2026-08-07 | 2026-08-07 | Edited real code (`fillStyle = 'blue'`) and confirmed a blue square rendered in the browser; predicted correctly that an invalid color would fall back to black |
 | Canvas CSS size vs pixel size, devicePixelRatio | seed | — | — | → S1 |
 | The event loop and `requestAnimationFrame` | seed | — | — | → S2 |
 | Frame timing and delta time | seed | — | — | → S2 |
 | React components and props | practicing | 2026-08-07 | 2026-08-07 | Edited and saved real JSX content in `App.tsx` (title + description) into a component I scaffolded; rendered correctly in the running dev server |
 | React state with `useState` | seed | — | — | → S3 |
 | Re-rendering and why React needs new objects | seed | — | — | → S3 |
-| `useEffect` and its dependency array | seed | — | — | → S3 |
-| `useRef` and the imperative escape hatch | seed | — | — | → S3 |
+| `useEffect` and its dependency array | practicing | 2026-08-07 | 2026-08-07 | Watched real console output confirm the empty-array behavior (runs once, after the real DOM exists); explained the render→build→effect order back correctly after a first explanation didn't land |
+| `useRef` and the imperative escape hatch | practicing | 2026-08-07 | 2026-08-07 | Reported real console evidence: `.current` was `null` during render, the real `<canvas>` inside `useEffect`; correctly reasoned through what happens with two refs vs. one ref reused across two canvases |
 | Bridging React state to an imperative canvas | introduced | 2026-08-07 | 2026-08-07 | Agreed the animation module stays outside React and takes params via a ref |
 | Choosing a framework — or not | introduced | 2026-08-07 | 2026-08-07 | Said a framework felt "a bit overkill for my case"; later chose React for resume reasons |
 | Event handlers and controlled inputs | seed | — | — | → S3 |
