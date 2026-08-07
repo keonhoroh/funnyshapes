@@ -88,11 +88,11 @@ size.
 - [x] **1.1 — Scaffold the app and watch it run.** Use Vite's project generator
       to create a React + TypeScript app, install its dependencies, start the dev
       server. *See: the default Vite welcome page in my browser.*
-- [ ] **1.2 — Account for every file, then put it under git.** Tour the handful
+- [x] **1.2 — Account for every file, then put it under git.** Tour the handful
       of scaffold files that matter, park the rest honestly in the file map,
       initialise the repository, make the first commit. *See: `git log` showing
       one commit, and a file map with a line for everything on disk.*
-- [ ] **1.3 — Strip it back to my own page.** Delete the demo content and write
+- [x] **1.3 — Strip it back to my own page.** Delete the demo content and write
       the smallest component and stylesheet that are actually mine. *See: a page
       with my words on it and nothing I did not choose.*
 - [ ] **1.4 — Get a canvas on screen and paint it.** Add a `<canvas>`, reach for

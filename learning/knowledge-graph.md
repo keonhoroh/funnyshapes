@@ -51,9 +51,9 @@ planning on 2026-08-07.
 
 | Status | Count |
 |---|---|
-| seed | 51 |
-| introduced | 18 |
-| practicing | 0 |
+| seed | 45 |
+| introduced | 23 |
+| practicing | 1 |
 | understood | 0 |
 
 ---
@@ -87,7 +87,7 @@ planning on 2026-08-07.
 
 | Concept | Status | Introduced | Reviewed | Evidence |
 |---|---|---|---|---|
-| ES modules: `import` / `export` | seed | — | — | → S1 |
+| ES modules: `import` / `export` | introduced | 2026-08-07 | 2026-08-07 | Correctly predicted `main.tsx` needs no change when `App.tsx`'s content changes: "main.tsx references the file App.tsx based on the filename" |
 | `package.json` and what it declares | introduced | 2026-08-07 | 2026-08-07 | Read my own `web/package.json`; saw that it names libraries rather than containing them |
 | Dependencies vs devDependencies | introduced | 2026-08-07 | 2026-08-07 | Explained against my real file in 1.1; I have not restated it yet |
 | Semantic versioning and lockfiles | seed | — | — | → 1.2 (deferred deliberately) |
@@ -108,7 +108,7 @@ planning on 2026-08-07.
 | Canvas CSS size vs pixel size, devicePixelRatio | seed | — | — | → S1 |
 | The event loop and `requestAnimationFrame` | seed | — | — | → S2 |
 | Frame timing and delta time | seed | — | — | → S2 |
-| React components and props | seed | — | — | → S3 |
+| React components and props | practicing | 2026-08-07 | 2026-08-07 | Edited and saved real JSX content in `App.tsx` (title + description) into a component I scaffolded; rendered correctly in the running dev server |
 | React state with `useState` | seed | — | — | → S3 |
 | Re-rendering and why React needs new objects | seed | — | — | → S3 |
 | `useEffect` and its dependency array | seed | — | — | → S3 |
@@ -147,10 +147,10 @@ planning on 2026-08-07.
 
 | Concept | Status | Introduced | Reviewed | Evidence |
 |---|---|---|---|---|
-| Git: repository, staging, commits | seed | — | — | → S1 |
-| Writing a useful commit message | seed | — | — | → S1 |
+| Git: repository, staging, commits | introduced | 2026-08-07 | 2026-08-07 | Predicted `git init` creates one hidden folder — correct on count, learned it's hidden from plain `ls`. Ran `git add`, predicted staged file counts twice, both close, made first commit `5b15850` |
+| Writing a useful commit message | introduced | 2026-08-07 | 2026-08-07 | Saw a real commit message with subject + body; have not written one myself yet |
 | Branches and when they help | seed | — | — | → S3 |
-| `.gitignore` and what never gets committed | seed | — | — | → S1 |
+| `.gitignore` and what never gets committed | introduced | 2026-08-07 | 2026-08-07 | Correctly reasoned `node_modules` is excluded because it's regenerable; I supplied the wrong mechanism (version mismatch) at first, corrected to "commit what can't be regenerated" |
 | Reading a stack trace | seed | — | — | → S2 |
 | Browser devtools and breakpoints | seed | — | — | → S2 |
 | Debugging as a method, not guessing | seed | — | — | → S2 |

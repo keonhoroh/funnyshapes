@@ -61,8 +61,9 @@ funnyshapes/
 | `.claude/settings.local.json` | known | A permissions allowlist so the assistant can run specific commands without asking every time. Currently allows exactly one: `npm --version`. |
 | `claude_test` | known | My personal motivation file. Nothing to do with the app — leave it alone. Currently empty. |
 
-**Not yet present, and it should be:** this directory is not a git repository.
-Nothing is under version control. Resolved in Section 1, Task 1.2.
+| `.git/` | generated | Created by `git init`. Stores the full commit history. Hidden — invisible to plain `ls`, visible with `ls -a`. Never hand-edit its contents. |
+
+**First commit:** `5b15850` — "Initial commit: project scaffold and learning docs", 25 files.
 
 ### `web/` — created by the Vite generator in Task 1.1
 
@@ -76,19 +77,17 @@ to `known`; the rest stay parked with honest one-liners.
 | `web/package.json` | **parked** | Records which libraries the frontend needs, and names the commands (`dev`, `build`, `lint`, `preview`). Partly toured in 1.1 — scripts, and dependencies vs devDependencies. Rest in 1.2. |
 | `web/package-lock.json` | generated | npm's exact record of every package version it installed, so the same install is reproducible. Never hand-edit. |
 | `web/node_modules/` | generated | The downloaded library code — 24 folders, 30 packages, 673 files. Created by `npm install`, never edited, never committed. |
-| `web/index.html` | **parked** | The HTML page the browser actually loads. Tour in 1.2. |
-| `web/src/` | **parked** | My application source code. Everything here I will eventually write or delete. |
-| `web/src/main.tsx` | **parked** | The entry point that starts React and attaches it to the page. Tour in 1.2. |
-| `web/src/App.tsx` | **parked** | The demo component producing the welcome page. Replaced by my own in 1.3. |
-| `web/src/App.css` | **parked** | Styles for the demo component. Replaced in 1.3. |
-| `web/src/index.css` | **parked** | Global page styles from the generator. Replaced in 1.3. |
-| `web/src/assets/` | **parked** | Demo images (`hero.png`, `react.svg`, `vite.svg`) used only by the welcome page. Deleted in 1.3. |
-| `web/public/` | **parked** | Files served exactly as-is with no processing. Contains `favicon.svg` and `icons.svg` from the generator. |
-| `web/vite.config.ts` | **parked** | Vite's own configuration. Tour in 1.2. |
-| `web/tsconfig.json` | **parked** | TypeScript compiler settings. Split into three files for reasons I do not yet know. Tour in 1.2. |
-| `web/tsconfig.app.json` | **parked** | See above. |
-| `web/tsconfig.node.json` | **parked** | See above. |
-| `web/.gitignore` | **parked** | Tells git which files never to track. Tour in 1.2, alongside `git init`. |
+| `web/index.html` | known | The page the browser loads. Contains an empty `<div id="root"></div>` and one script tag pointing at `main.tsx` — the whole app is built by that script, not written in this HTML. |
+| `web/src/` | known | My application source code. Everything here I will eventually write or delete. |
+| `web/src/main.tsx` | known | Finds the empty `#root` div and tells React to render `<App />` into it. `StrictMode` runs code twice in development only, to surface bugs — worth remembering when Section 2's animation seems to double-start. Confirmed in 1.3: it only cares about the file path `./App.tsx`, never what's inside it. |
+| `web/src/App.tsx` | known | My component. Returns a `<main>` with a title ("cool patterns") and a one-line description ("high-res wave effect generator"), both mine. Nothing else yet — canvas comes in 1.4. |
+| `web/src/index.css` | **parked** | Rewrote as a 9-line reset (`color-scheme`, `margin: 0`, a default font) to replace 111 lines of demo styling. Written by me, not yet by you — real styling decisions are Section 3's job. |
+| `web/public/` | known | Files served exactly as-is, no processing. Contains only `favicon.svg` now — `icons.svg` was deleted in 1.3 after confirming nothing referenced it. |
+| `web/vite.config.ts` | known | 7 lines. Tells Vite to load the React plugin so it knows how to handle `.tsx` files. That's the whole file. |
+| `web/tsconfig.json` | known | Contains no settings itself — just points to `tsconfig.app.json` and `tsconfig.node.json`. |
+| `web/tsconfig.app.json` | known | TypeScript rules for app code, which runs in the browser (has `window`, `document`). |
+| `web/tsconfig.node.json` | known | TypeScript rules for build tooling, which runs in Node (has filesystem access). Split from the app config because the two environments support different features. |
+| `web/.gitignore` | known | Tells git which files in `web/` to never track — `node_modules` and `dist`, both fully regenerable, so tracking them would waste space for zero unique information. |
 | `web/.oxlintrc.json` | **parked** | Configuration for oxlint, the linter listed in devDependencies. Not yet examined. |
 | `web/README.md` | **parked** | The generator's default readme. Describes Vite templates, not my project. Replaced in Section 9. |
 
