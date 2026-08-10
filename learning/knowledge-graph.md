@@ -52,9 +52,9 @@ are mostly things walked through during project and technical planning on
 
 | Status | Count |
 |---|---|
-| seed | 34 |
+| seed | 31 |
 | introduced | 23 |
-| practicing | 8 |
+| practicing | 11 |
 | understood | 4 |
 
 ---
@@ -70,7 +70,7 @@ are mostly things walked through during project and technical planning on
 | Loops and iteration | practicing | 2026-08-10 | 2026-08-10 | Correctly predicted 400/5 cell math, then wrote a nested-loop `x`/`y` computation combining Task 1.6's centering formula with a per-cell `col * CELL` / `row * CELL` offset, producing a working 5×5 grid |
 | Conditionals and boolean logic | seed | — | — | → S1 |
 | Arrays and `map` / `filter` / `reduce` | seed | — | — | → S2 |
-| Objects, destructuring, spread | seed | — | — | → S3 |
+| Objects, destructuring, spread | introduced | 2026-08-10 | 2026-08-10 | Array destructuring specifically: asked what `const [amplitude, setAmplitude] = useState(15)` does, then had it explained — not yet self-written |
 | Pure functions vs side effects | seed | — | — | → S2 |
 | Immutability and why it matters in React | seed | — | — | → S3 |
 | `null` / `undefined` and optional values | seed | — | — | → S4 |
@@ -110,13 +110,13 @@ are mostly things walked through during project and technical planning on
 | The event loop and `requestAnimationFrame` | practicing | 2026-08-10 | 2026-08-10 | Wrote `startLoop`'s `frame()` body from a description: clear, move, wrap, draw, then re-request itself — running correctly as a real loop |
 | Frame timing and delta time | seed | — | — | → S2 |
 | React components and props | practicing | 2026-08-07 | 2026-08-07 | Edited and saved real JSX content in `App.tsx` (title + description) into a component I scaffolded; rendered correctly in the running dev server |
-| React state with `useState` | seed | — | — | → S3 |
+| React state with `useState` | practicing | 2026-08-10 | 2026-08-10 | Task 3.1: wrote `setAmplitude(Number(event.target.value))` in a slider's `onChange`; before that, correctly diagnosed their own bug — a first attempt computed the number but never called `setAmplitude`, and they traced through why an unused value "gets ignored" |
 | Re-rendering and why React needs new objects | seed | — | — | → S3 |
 | `useEffect` and its dependency array | practicing | 2026-08-07 | 2026-08-07 | Watched real console output confirm the empty-array behavior (runs once, after the real DOM exists); explained the render→build→effect order back correctly after a first explanation didn't land |
 | `useRef` and the imperative escape hatch | practicing | 2026-08-07 | 2026-08-07 | Reported real console evidence: `.current` was `null` during render, the real `<canvas>` inside `useEffect`; correctly reasoned through what happens with two refs vs. one ref reused across two canvases |
-| Bridging React state to an imperative canvas | introduced | 2026-08-07 | 2026-08-07 | Agreed the animation module stays outside React and takes params via a ref |
+| Bridging React state to an imperative canvas | practicing | 2026-08-07 | 2026-08-10 | Task 3.1: built the actual bridge — an `amplitudeRef` kept in sync with `amplitude` state via a `useEffect`, passed into `startLoop`, read as `amplitudeRef.current` inside `frame()`. Correctly explained beforehand why passing the raw state value instead would fail: "frame would use what snapshot forever" → walked through a stale-closure example and confirmed the value gets "baked into frame permanently" at call time |
 | Choosing a framework — or not | introduced | 2026-08-07 | 2026-08-07 | Said a framework felt "a bit overkill for my case"; later chose React for resume reasons |
-| Event handlers and controlled inputs | seed | — | — | → S3 |
+| Event handlers and controlled inputs | practicing | 2026-08-10 | 2026-08-10 | Task 3.1: wrote a working `onChange` handler on a controlled `<input type="range" value={amplitude}>`, correctly using `event.target.value` and converting it with `Number()` |
 | CSS layout: flexbox and grid | seed | — | — | → S3 |
 | CSS custom properties | seed | — | — | → S3 |
 | Colour spaces and why palettes look muddy | seed | — | — | → S3 |

@@ -78,9 +78,10 @@ a question worth being able to answer well in an interview.*
 
 ### Stack
 
-- **Frontend:** TypeScript + Vite, Canvas 2D, hand-written CSS. No React and no
-  component library for the MVP — the goal is to learn the craft, and sliders
-  and a canvas do not need a framework. React is a v2 consideration.
+- **Frontend:** TypeScript + Vite, React, Canvas 2D, hand-written CSS. No
+  component library. React was picked over no framework specifically as a
+  resume priority (see `plan.md`'s locked decisions) — a deliberate tradeoff,
+  not the default choice for a sliders-and-canvas app.
 - **Backend:** Node + TypeScript (Fastify or Express), Playwright, ffmpeg.
 - **Persistence:** none for configs — the config lives in the URL. Job state in
   SQLite or an in-process map. Rendered files on local disk with a TTL.

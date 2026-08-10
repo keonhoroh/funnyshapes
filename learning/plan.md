@@ -160,6 +160,29 @@ another tab, get an identical loop. Live on the internet.
 **Should be able to explain:** how React state reaches a canvas that React does
 not control, and why the URL is a legitimate place to store state.
 
+**Tasks**
+
+- [x] **3.1 — Wire one parameter to a real control.** Add a slider, hold its
+      value in React state, and get that value into the running animation loop
+      via the existing canvas ref — the same bridge already used to hand the
+      loop its canvas, now used to hand it a live parameter. *See: dragging one
+      slider visibly changes the pattern in real time.*
+- [ ] **3.2 — Wire the remaining numeric parameters.** Grid density, wave
+      frequency, phase speed, and shape size, using the same bridge pattern.
+      *See: all five numeric parameters live-adjustable.*
+- [ ] **3.3 — Build the palette picker.** Five hand-tuned color palettes and a
+      picker control to choose between them — a discrete choice, not a slider.
+      *See: switching palettes recolors the pattern instantly.*
+- [ ] **3.4 — Encode the full config into the URL.** Read initial parameter
+      values from the URL on load, and keep the URL in sync as parameters
+      change. *See: reload the page and the exact same loop comes back; paste
+      the URL elsewhere and get the same result.*
+- [ ] **3.5 — A real CSS pass.** Layout, spacing, typography, and color for the
+      studio interface itself — not the generated pattern. *See: a page that
+      looks like a considered product, not a scaffold.*
+- [ ] **3.6 — Deploy the static frontend.** Live, even with no backend yet.
+      *See: the Section 3 deliverable — a public URL a stranger could open.*
+
 ---
 
 ### Section 4 — A server that exists

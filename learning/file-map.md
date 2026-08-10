@@ -4,7 +4,7 @@
 > it appears. If I cannot say what something is and why it exists, it does not
 > get to sit in my repo unexplained.
 
-**Last updated:** 2026-08-10 (Task 2.5)
+**Last updated:** 2026-08-10 (Task 3.1)
 
 ---
 
@@ -63,7 +63,7 @@ funnyshapes/
 | `.claude/settings.local.json` | known | A permissions allowlist so the assistant can run specific commands without asking every time. Currently allows exactly one: `npm --version`. |
 | `claude_test` | known | My personal motivation file. Nothing to do with the app — leave it alone. Currently empty. |
 | `shared/` | known | The framework-free animation module. Plain TypeScript, zero React — has to run standalone in Playwright's Chromium during export in Section 5, not just in the browser. |
-| `shared/animation.ts` | known | Exports `SIZE`, `SHAPE_SIZE`, `GRID_SIZE`, `CELL`, and `startLoop(ctx)` — a `requestAnimationFrame` loop. Every frame redraws all 25 grid cells, each offset vertically by `Math.sin(angle + row*PHASE_STEP + col*PHASE_STEP) * WAVE_AMPLITUDE`. As of Task 2.5, `angle` is no longer accumulated with `+=` — it's recalculated fresh each frame from a wrapping `frameIndex` (`0` to `LOOP_FRAMES - 1`, via `% LOOP_FRAMES`) and the constants `LOOP_FRAMES`/`CYCLES`, so frame 0 and the wrap frame land on the exact same angle with no drift. This is the Section 2 deliverable: a rippling grid that loops seamlessly. `drawGrid` (Task 2.1's static version) was removed once nothing called it anymore. Imported into `App.tsx` via a relative path; Vite serves it because it auto-detects the git repo root as the allowed file-serving boundary, not just `web/`. |
+| `shared/animation.ts` | known | Exports `SIZE`, `SHAPE_SIZE`, `GRID_SIZE`, `CELL`, and `startLoop(ctx, amplitudeRef)` — a `requestAnimationFrame` loop. Every frame redraws all 25 grid cells, each offset vertically by `Math.sin(angle + row*PHASE_STEP + col*PHASE_STEP) * amplitudeRef.current`. `angle` is recalculated fresh each frame from a wrapping `frameIndex` and the constants `LOOP_FRAMES`/`CYCLES`, so frame 0 and the wrap frame land on the exact same angle with no drift (Task 2.5, the Section 2 deliverable). As of Task 3.1, `WAVE_AMPLITUDE` is gone — amplitude is now a live parameter, handed in as a ref so the running loop reads a fresh value every frame instead of one baked in at start. `drawGrid` (Task 2.1's static version) was removed once nothing called it anymore. Imported into `App.tsx` via a relative path; Vite serves it because it auto-detects the git repo root as the allowed file-serving boundary, not just `web/`. |
 
 | `.git/` | generated | Created by `git init`. Stores the full commit history. Hidden — invisible to plain `ls`, visible with `ls -a`. Never hand-edit its contents. |
 
@@ -84,7 +84,7 @@ to `known`; the rest stay parked with honest one-liners.
 | `web/index.html` | known | The page the browser loads. Contains an empty `<div id="root"></div>` and one script tag pointing at `main.tsx` — the whole app is built by that script, not written in this HTML. |
 | `web/src/` | known | My application source code. Everything here I will eventually write or delete. |
 | `web/src/main.tsx` | known | Finds the empty `#root` div and tells React to render `<App />` into it. `StrictMode` runs code twice in development only, to surface bugs — worth remembering when Section 2's animation seems to double-start. Confirmed in 1.3: it only cares about the file path `./App.tsx`, never what's inside it. |
-| `web/src/App.tsx` | known | My component. Renders a title, a description, and a correctly-sized `<canvas>` (buffer at `SIZE * devicePixelRatio`, CSS size pinned at `SIZE`, `ctx.scale` keeps drawing code in `SIZE`-unit coordinates). Drawing logic lives in `shared/animation.ts`; this file only handles the ref, effect timing, sizing, and now calls `startLoop(ctx)` (Task 2.2) instead of the one-shot `drawGrid(ctx)`. |
+| `web/src/App.tsx` | known | My component. Renders a title, a description, a correctly-sized `<canvas>` (buffer at `SIZE * devicePixelRatio`, CSS size pinned at `SIZE`, `ctx.scale` keeps drawing code in `SIZE`-unit coordinates), and now a range slider. Drawing logic lives in `shared/animation.ts`; this file handles the ref, effect timing, sizing, and calls `startLoop(ctx, amplitudeRef)`. As of Task 3.1: `amplitude` is `useState`, mirrored into `amplitudeRef` by a `useEffect` so the running animation loop (which only reads its own copy once, at start) can see live updates without restarting — the bridge pattern for getting React state into code React doesn't control. |
 | `web/src/index.css` | **parked** | Rewrote as a 9-line reset (`color-scheme`, `margin: 0`, a default font) to replace 111 lines of demo styling. Written by me, not yet by you — real styling decisions are Section 3's job. |
 | `web/public/` | known | Files served exactly as-is, no processing. Contains only `favicon.svg` now — `icons.svg` was deleted in 1.3 after confirming nothing referenced it. |
 | `web/vite.config.ts` | known | 7 lines. Tells Vite to load the React plugin so it knows how to handle `.tsx` files. That's the whole file. |

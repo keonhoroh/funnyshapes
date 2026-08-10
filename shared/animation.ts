@@ -3,13 +3,12 @@ export const SHAPE_SIZE = 40 // the size of one square
 export const GRID_SIZE = 5 // how many cells per row and per column
 export const CELL = SIZE / GRID_SIZE // the size of one grid cell
 
-const WAVE_AMPLITUDE = 15 // how far each cell wobbles vertically, in pixels
 const PHASE_STEP = 0.5 // how much each next row/col shifts the sine input
 
 const LOOP_FRAMES = 120 // how many frames make up one full loop
 const CYCLES = 1 // how many full sine cycles happen within one loop
 
-export function startLoop(ctx: CanvasRenderingContext2D) {
+export function startLoop(ctx: CanvasRenderingContext2D, amplitudeRef: { current: number }) {
   let frameIndex = 0 // which frame of the loop we're on, 0 up to LOOP_FRAMES - 1
 
   function frame() {
@@ -22,7 +21,7 @@ export function startLoop(ctx: CanvasRenderingContext2D) {
         const x = (CELL - SHAPE_SIZE) / 2 + col * CELL
         const y = (CELL - SHAPE_SIZE) / 2 + row * CELL
 
-        const offset = Math.sin(angle + row * PHASE_STEP + col * PHASE_STEP) * WAVE_AMPLITUDE
+        const offset = Math.sin(angle + row * PHASE_STEP + col * PHASE_STEP) * amplitudeRef.current
         ctx.fillRect(x, y + offset, SHAPE_SIZE, SHAPE_SIZE)
       }
     }
