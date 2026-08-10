@@ -3,7 +3,7 @@
 > **Living document.** Updated after every lesson. This is the file that decides
 > what I get quizzed on.
 
-**Last updated:** 2026-08-07
+**Last updated:** 2026-08-10
 
 ---
 
@@ -51,9 +51,9 @@ planning on 2026-08-07.
 
 | Status | Count |
 |---|---|
-| seed | 41 |
+| seed | 40 |
 | introduced | 24 |
-| practicing | 4 |
+| practicing | 5 |
 | understood | 0 |
 
 ---
@@ -105,7 +105,7 @@ planning on 2026-08-07.
 |---|---|---|---|---|
 | The DOM as a tree of elements | seed | — | — | → S1 |
 | Canvas element vs its 2D drawing context | practicing | 2026-08-07 | 2026-08-07 | Edited real code (`fillStyle = 'blue'`) and confirmed a blue square rendered in the browser; predicted correctly that an invalid color would fall back to black |
-| Canvas CSS size vs pixel size, devicePixelRatio | seed | — | — | → S1 |
+| Canvas CSS size vs pixel size, devicePixelRatio | practicing | 2026-08-10 | 2026-08-10 | Wrote the real buffer/style/scale code correctly from a skeleton; first explanation conflated `ctx.scale`'s job with the CSS pinning's job, corrected after a concrete numeric walkthrough |
 | The event loop and `requestAnimationFrame` | seed | — | — | → S2 |
 | Frame timing and delta time | seed | — | — | → S2 |
 | React components and props | practicing | 2026-08-07 | 2026-08-07 | Edited and saved real JSX content in `App.tsx` (title + description) into a component I scaffolded; rendered correctly in the running dev server |

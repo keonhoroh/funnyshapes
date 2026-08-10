@@ -98,7 +98,7 @@ size.
 - [x] **1.4 — Get a canvas on screen and paint it.** Add a `<canvas>`, reach for
       its 2D drawing context, fill it with a colour. *See: a rectangle of colour
       I chose.*
-- [ ] **1.5 — Size the canvas honestly.** Handle the difference between the
+- [x] **1.5 — Size the canvas honestly.** Handle the difference between the
       canvas's CSS size and its pixel buffer, including devicePixelRatio. *See: a
       crisp, correctly sized canvas instead of a blurry stretched one.*
 - [ ] **1.6 — Draw one shape at a position I compute.** A single square, placed

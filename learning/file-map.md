@@ -4,7 +4,7 @@
 > it appears. If I cannot say what something is and why it exists, it does not
 > get to sit in my repo unexplained.
 
-**Last updated:** 2026-08-07
+**Last updated:** 2026-08-10
 
 ---
 
@@ -80,7 +80,7 @@ to `known`; the rest stay parked with honest one-liners.
 | `web/index.html` | known | The page the browser loads. Contains an empty `<div id="root"></div>` and one script tag pointing at `main.tsx` — the whole app is built by that script, not written in this HTML. |
 | `web/src/` | known | My application source code. Everything here I will eventually write or delete. |
 | `web/src/main.tsx` | known | Finds the empty `#root` div and tells React to render `<App />` into it. `StrictMode` runs code twice in development only, to surface bugs — worth remembering when Section 2's animation seems to double-start. Confirmed in 1.3: it only cares about the file path `./App.tsx`, never what's inside it. |
-| `web/src/App.tsx` | known | My component. Renders a title, a description, and a 400×400 `<canvas>` filled blue via `useRef` + `useEffect` + the 2D drawing context. Fixed pixel sizing is a placeholder — proper sizing lands in 1.5. |
+| `web/src/App.tsx` | known | My component. Renders a title, a description, and a 400×400 `<canvas>` filled blue via `useRef` + `useEffect` + the 2D drawing context. Buffer is sized at `SIZE * devicePixelRatio`, CSS size pinned at `SIZE`, and `ctx.scale` keeps drawing code in plain `SIZE`-unit coordinates. |
 | `web/src/index.css` | **parked** | Rewrote as a 9-line reset (`color-scheme`, `margin: 0`, a default font) to replace 111 lines of demo styling. Written by me, not yet by you — real styling decisions are Section 3's job. |
 | `web/public/` | known | Files served exactly as-is, no processing. Contains only `favicon.svg` now — `icons.svg` was deleted in 1.3 after confirming nothing referenced it. |
 | `web/vite.config.ts` | known | 7 lines. Tells Vite to load the React plugin so it knows how to handle `.tsx` files. That's the whole file. |
