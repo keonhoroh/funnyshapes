@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 const SIZE = 400 // the size we want the canvas to actually appear on screen, in CSS pixels
+const SHAPE_SIZE = 40 // the size of the one square we're placing
 
 function App() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -14,19 +15,18 @@ function App() {
 
     const dpr = window.devicePixelRatio
 
-    // TODO(you): set canvas.width and canvas.height to SIZE * dpr (the buffer size)
     canvas.width = SIZE * dpr
     canvas.height = SIZE * dpr
-
-    // TODO(you): set canvas.style.width and canvas.style.height to `${SIZE}px` (the pinned display size)
     canvas.style.width = `${SIZE}px`
     canvas.style.height = `${SIZE}px`
-
-    // TODO(you): call ctx.scale so drawing code can keep using SIZE instead of the buffer size
     ctx.scale(dpr, dpr)
 
+    // TODO(you): compute x and y so the square sits centered — (SIZE - SHAPE_SIZE) / 2
+    const x = (SIZE - SHAPE_SIZE) / 2
+    const y = (SIZE - SHAPE_SIZE) / 2
+
     ctx.fillStyle = 'blue'
-    ctx.fillRect(0, 0, SIZE, SIZE)
+    ctx.fillRect(x, y, SHAPE_SIZE, SHAPE_SIZE)
   }, [])
 
   return (

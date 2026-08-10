@@ -101,7 +101,7 @@ size.
 - [x] **1.5 — Size the canvas honestly.** Handle the difference between the
       canvas's CSS size and its pixel buffer, including devicePixelRatio. *See: a
       crisp, correctly sized canvas instead of a blurry stretched one.*
-- [ ] **1.6 — Draw one shape at a position I compute.** A single square, placed
+- [x] **1.6 — Draw one shape at a position I compute.** A single square, placed
       by arithmetic rather than by hardcoded coordinates. *See: one shape exactly
       where I decided it goes.*
 - [ ] **1.7 — Turn one shape into a grid.** Nested loops over rows and columns.
