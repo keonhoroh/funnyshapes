@@ -104,7 +104,7 @@ size.
 - [x] **1.6 — Draw one shape at a position I compute.** A single square, placed
       by arithmetic rather than by hardcoded coordinates. *See: one shape exactly
       where I decided it goes.*
-- [ ] **1.7 — Turn one shape into a grid.** Nested loops over rows and columns.
+- [x] **1.7 — Turn one shape into a grid.** Nested loops over rows and columns.
       *See: the Section 1 deliverable — a grid of shapes rendering at
       `localhost:5173`.*
 

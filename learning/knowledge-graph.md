@@ -51,9 +51,9 @@ planning on 2026-08-07.
 
 | Status | Count |
 |---|---|
-| seed | 40 |
+| seed | 39 |
 | introduced | 24 |
-| practicing | 5 |
+| practicing | 6 |
 | understood | 0 |
 
 ---
@@ -66,7 +66,7 @@ planning on 2026-08-07.
 | Types and type annotations | introduced | 2026-08-07 | 2026-08-07 | Said TypeScript "is quick to point out errors in my code" |
 | Type inference vs explicit types | seed | — | — | → S1 |
 | Functions, parameters, return values | seed | — | — | → S1 |
-| Loops and iteration | seed | — | — | → S1 |
+| Loops and iteration | practicing | 2026-08-10 | 2026-08-10 | Correctly predicted 400/5 cell math, then wrote a nested-loop `x`/`y` computation combining Task 1.6's centering formula with a per-cell `col * CELL` / `row * CELL` offset, producing a working 5×5 grid |
 | Conditionals and boolean logic | seed | — | — | → S1 |
 | Arrays and `map` / `filter` / `reduce` | seed | — | — | → S2 |
 | Objects, destructuring, spread | seed | — | — | → S3 |
