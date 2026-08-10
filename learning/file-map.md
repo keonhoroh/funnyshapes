@@ -4,7 +4,7 @@
 > it appears. If I cannot say what something is and why it exists, it does not
 > get to sit in my repo unexplained.
 
-**Last updated:** 2026-08-10 (Task 2.4)
+**Last updated:** 2026-08-10 (Task 2.5)
 
 ---
 
@@ -63,7 +63,7 @@ funnyshapes/
 | `.claude/settings.local.json` | known | A permissions allowlist so the assistant can run specific commands without asking every time. Currently allows exactly one: `npm --version`. |
 | `claude_test` | known | My personal motivation file. Nothing to do with the app — leave it alone. Currently empty. |
 | `shared/` | known | The framework-free animation module. Plain TypeScript, zero React — has to run standalone in Playwright's Chromium during export in Section 5, not just in the browser. |
-| `shared/animation.ts` | known | Exports `SIZE`, `SHAPE_SIZE`, `GRID_SIZE`, `CELL`, and `startLoop(ctx)` — a `requestAnimationFrame` loop. As of Task 2.4, every frame redraws all 25 grid cells, each offset vertically by `Math.sin(angle + row*PHASE_STEP + col*PHASE_STEP) * WAVE_AMPLITUDE` — one shared clock (`angle`), 25 different phase shifts, producing a ripple. `drawGrid` (Task 2.1's static version) was removed once nothing called it anymore. Imported into `App.tsx` via a relative path; Vite serves it because it auto-detects the git repo root as the allowed file-serving boundary, not just `web/`. |
+| `shared/animation.ts` | known | Exports `SIZE`, `SHAPE_SIZE`, `GRID_SIZE`, `CELL`, and `startLoop(ctx)` — a `requestAnimationFrame` loop. Every frame redraws all 25 grid cells, each offset vertically by `Math.sin(angle + row*PHASE_STEP + col*PHASE_STEP) * WAVE_AMPLITUDE`. As of Task 2.5, `angle` is no longer accumulated with `+=` — it's recalculated fresh each frame from a wrapping `frameIndex` (`0` to `LOOP_FRAMES - 1`, via `% LOOP_FRAMES`) and the constants `LOOP_FRAMES`/`CYCLES`, so frame 0 and the wrap frame land on the exact same angle with no drift. This is the Section 2 deliverable: a rippling grid that loops seamlessly. `drawGrid` (Task 2.1's static version) was removed once nothing called it anymore. Imported into `App.tsx` via a relative path; Vite serves it because it auto-detects the git repo root as the allowed file-serving boundary, not just `web/`. |
 
 | `.git/` | generated | Created by `git init`. Stores the full commit history. Hidden — invisible to plain `ls`, visible with `ls -a`. Never hand-edit its contents. |
 

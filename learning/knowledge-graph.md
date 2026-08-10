@@ -45,16 +45,17 @@ of the build plan." Dates are `YYYY-MM-DD`.
 
 ## Current state
 
-Two concepts reached `understood` on 2026-08-10, via the Section 1 explain-back
-question. The `introduced` entries are mostly things walked through during
-project and technical planning on 2026-08-07.
+Four concepts have reached `understood` as of 2026-08-10, two via the Section 1
+explain-back and two via the Section 2 explain-back. The `introduced` entries
+are mostly things walked through during project and technical planning on
+2026-08-07.
 
 | Status | Count |
 |---|---|
-| seed | 35 |
+| seed | 34 |
 | introduced | 23 |
-| practicing | 9 |
-| understood | 2 |
+| practicing | 8 |
+| understood | 4 |
 
 ---
 
@@ -78,7 +79,7 @@ project and technical planning on 2026-08-07.
 | Trigonometry for motion: sine, cosine, radians | practicing | 2026-08-10 | 2026-08-10 | Correctly predicted x = CENTER, CENTER+AMPLITUDE, CENTER-AMPLITUDE for sin = 0, 1, -1; then wrote `Math.sin(angle)` driven motion correctly, with `angle` incrementing outside the frame |
 | Normalization and mapping ranges | practicing | 2026-08-10 | 2026-08-10 | Wrote `CENTER + AMPLITUDE * Math.sin(angle)` — mapping sine's -1..1 output into a real pixel range, not just copying a given formula blindly (predicted the bounds first) |
 | Linear interpolation (lerp) and easing | seed | — | — | → S2 |
-| Periodicity — what makes a loop seamless | seed | — | — | → S2 |
+| Periodicity — what makes a loop seamless | understood | 2026-08-10 | 2026-08-10 | Section 2 explain-back: caught their own wrong formula (an extra `× 2`) by predicting values before writing code, then explained in their own words that the modulo keeps `frameIndex` bounded and that recomputing `angle` fresh each frame (instead of `+=`) avoids the rounding-error drift repeated addition accumulates, so frame 0 and the wrap frame land on the exact same angle |
 | Deterministic randomness and seeds | seed | — | — | → S2 |
 
 ## Level 2 — Structural: how the pieces talk
@@ -97,7 +98,7 @@ project and technical planning on 2026-08-07.
 | What a build step actually produces | seed | — | — | → S4 |
 | Vite dev server vs production build | seed | — | — | → S4 |
 | Sharing one module across two runtimes | practicing | 2026-08-07 | 2026-08-10 | Built `shared/animation.ts` and imported it into `App.tsx`; confirmed via the served module output that it runs with zero React involved |
-| Why the animation module must stay framework-free | practicing | 2026-08-07 | 2026-08-10 | Moved real drawing logic out of the React component into `shared/animation.ts`, keeping only ref/effect/sizing in `App.tsx` |
+| Why the animation module must stay framework-free | understood | 2026-08-07 | 2026-08-10 | Section 2 explain-back, in their own words: Playwright's headless browser will run `animation.ts` directly with no React loaded, so any React code in that file would fail there — it has to stay plain so the same file works in both places |
 
 ### Frontend
 

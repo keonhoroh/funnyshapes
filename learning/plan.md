@@ -137,7 +137,7 @@ back to where it started), and why the animation module has to be framework-free
 - [x] **2.4 — Apply the sine field to the whole grid.** Every cell's offset
       driven by sine, based on its row/col position and time. *See: the grid
       rippling like a wave.*
-- [ ] **2.5 — Make the loop seamless.** Constrain the timing so frame N and the
+- [x] **2.5 — Make the loop seamless.** Constrain the timing so frame N and the
       frame one full period later are identical, with no visible jump on repeat.
       *See: the Section 2 deliverable — a wave tile animating and looping
       seamlessly.*
