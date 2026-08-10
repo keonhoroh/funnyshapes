@@ -4,7 +4,7 @@
 > it appears. If I cannot say what something is and why it exists, it does not
 > get to sit in my repo unexplained.
 
-**Last updated:** 2026-08-10 (Task 2.2)
+**Last updated:** 2026-08-10 (Task 2.3)
 
 ---
 
@@ -63,7 +63,7 @@ funnyshapes/
 | `.claude/settings.local.json` | known | A permissions allowlist so the assistant can run specific commands without asking every time. Currently allows exactly one: `npm --version`. |
 | `claude_test` | known | My personal motivation file. Nothing to do with the app — leave it alone. Currently empty. |
 | `shared/` | known | The framework-free animation module. Plain TypeScript, zero React — has to run standalone in Playwright's Chromium during export in Section 5, not just in the browser. |
-| `shared/animation.ts` | known | Exports `SIZE`, `SHAPE_SIZE`, `GRID_SIZE`, `CELL`, `drawGrid(ctx)` (static grid, Task 2.1), and `startLoop(ctx)` (Task 2.2) — a `requestAnimationFrame` loop that clears, moves, wraps, and redraws one square every frame. Imported into `App.tsx` via a relative path; Vite serves it because it auto-detects the git repo root as the allowed file-serving boundary, not just `web/`. |
+| `shared/animation.ts` | known | Exports `SIZE`, `SHAPE_SIZE`, `GRID_SIZE`, `CELL`, `drawGrid(ctx)` (static grid, Task 2.1), and `startLoop(ctx)` — a `requestAnimationFrame` loop. As of Task 2.3, `startLoop` drives one square with `Math.sin(angle)` mapped through `CENTER`/`AMPLITUDE`, oscillating instead of linearly drifting. Imported into `App.tsx` via a relative path; Vite serves it because it auto-detects the git repo root as the allowed file-serving boundary, not just `web/`. |
 
 | `.git/` | generated | Created by `git init`. Stores the full commit history. Hidden — invisible to plain `ls`, visible with `ls -a`. Never hand-edit its contents. |
 

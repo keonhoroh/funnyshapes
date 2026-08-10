@@ -51,9 +51,9 @@ project and technical planning on 2026-08-07.
 
 | Status | Count |
 |---|---|
-| seed | 37 |
+| seed | 35 |
 | introduced | 23 |
-| practicing | 7 |
+| practicing | 9 |
 | understood | 2 |
 
 ---
@@ -75,8 +75,8 @@ project and technical planning on 2026-08-07.
 | `null` / `undefined` and optional values | seed | — | — | → S4 |
 | Promises and `async` / `await` | seed | — | — | → S5 |
 | `try` / `catch` and throwing errors | seed | — | — | → S6 |
-| Trigonometry for motion: sine, cosine, radians | seed | — | — | → S2 |
-| Normalization and mapping ranges | seed | — | — | → S2 |
+| Trigonometry for motion: sine, cosine, radians | practicing | 2026-08-10 | 2026-08-10 | Correctly predicted x = CENTER, CENTER+AMPLITUDE, CENTER-AMPLITUDE for sin = 0, 1, -1; then wrote `Math.sin(angle)` driven motion correctly, with `angle` incrementing outside the frame |
+| Normalization and mapping ranges | practicing | 2026-08-10 | 2026-08-10 | Wrote `CENTER + AMPLITUDE * Math.sin(angle)` — mapping sine's -1..1 output into a real pixel range, not just copying a given formula blindly (predicted the bounds first) |
 | Linear interpolation (lerp) and easing | seed | — | — | → S2 |
 | Periodicity — what makes a loop seamless | seed | — | — | → S2 |
 | Deterministic randomness and seeds | seed | — | — | → S2 |

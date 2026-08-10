@@ -16,13 +16,17 @@ export function drawGrid(ctx: CanvasRenderingContext2D) {
   }
 }
 
+const CENTER = (SIZE - SHAPE_SIZE) / 2 // the x the square oscillates around
+const AMPLITUDE = 150 // how far it swings left and right of CENTER
+
 export function startLoop(ctx: CanvasRenderingContext2D) {
-  let x = 0 // lives out here, not inside frame(), so it survives between calls
+  let angle = 0 // lives out here, not inside frame(), so it survives between calls
 
   function frame() {
     ctx.clearRect(0, 0, SIZE, SIZE) // erase the previous frame
-    x += 2 // move x forward a little
-    if (x > SIZE) x = 0 // wrap it back to 0 if it has gone past SIZE
+
+    const x = CENTER + AMPLITUDE * Math.sin(angle) // calculate the new x position
+    angle += 0.05 // increment the angle for the next frame
 
     ctx.fillStyle = 'blue'
     ctx.fillRect(x, 0, SHAPE_SIZE, SHAPE_SIZE) // draw one square

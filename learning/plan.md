@@ -131,7 +131,7 @@ back to where it started), and why the animation module has to be framework-free
 - [x] **2.2 — Get one frame moving.** A `requestAnimationFrame` loop that shifts
       one shape's position a little more each frame, no trig yet. *See: a shape
       visibly drifting across the canvas.*
-- [ ] **2.3 — Drive one shape with a sine wave.** Swap the drift for
+- [x] **2.3 — Drive one shape with a sine wave.** Swap the drift for
       `Math.sin`-based motion on one shape. *See: one shape oscillating back and
       forth smoothly.*
 - [ ] **2.4 — Apply the sine field to the whole grid.** Every cell's offset
