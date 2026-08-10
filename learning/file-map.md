@@ -4,7 +4,7 @@
 > it appears. If I cannot say what something is and why it exists, it does not
 > get to sit in my repo unexplained.
 
-**Last updated:** 2026-08-10 (Task 2.1)
+**Last updated:** 2026-08-10 (Task 2.2)
 
 ---
 
@@ -63,7 +63,7 @@ funnyshapes/
 | `.claude/settings.local.json` | known | A permissions allowlist so the assistant can run specific commands without asking every time. Currently allows exactly one: `npm --version`. |
 | `claude_test` | known | My personal motivation file. Nothing to do with the app — leave it alone. Currently empty. |
 | `shared/` | known | The framework-free animation module. Plain TypeScript, zero React — has to run standalone in Playwright's Chromium during export in Section 5, not just in the browser. |
-| `shared/animation.ts` | known | Exports `SIZE`, `SHAPE_SIZE`, `GRID_SIZE`, `CELL`, and `drawGrid(ctx)` — the grid-drawing logic moved out of `App.tsx` in Task 2.1. Imported into `App.tsx` via a relative path; Vite serves it because it auto-detects the git repo root as the allowed file-serving boundary, not just `web/`. |
+| `shared/animation.ts` | known | Exports `SIZE`, `SHAPE_SIZE`, `GRID_SIZE`, `CELL`, `drawGrid(ctx)` (static grid, Task 2.1), and `startLoop(ctx)` (Task 2.2) — a `requestAnimationFrame` loop that clears, moves, wraps, and redraws one square every frame. Imported into `App.tsx` via a relative path; Vite serves it because it auto-detects the git repo root as the allowed file-serving boundary, not just `web/`. |
 
 | `.git/` | generated | Created by `git init`. Stores the full commit history. Hidden — invisible to plain `ls`, visible with `ls -a`. Never hand-edit its contents. |
 
@@ -84,7 +84,7 @@ to `known`; the rest stay parked with honest one-liners.
 | `web/index.html` | known | The page the browser loads. Contains an empty `<div id="root"></div>` and one script tag pointing at `main.tsx` — the whole app is built by that script, not written in this HTML. |
 | `web/src/` | known | My application source code. Everything here I will eventually write or delete. |
 | `web/src/main.tsx` | known | Finds the empty `#root` div and tells React to render `<App />` into it. `StrictMode` runs code twice in development only, to surface bugs — worth remembering when Section 2's animation seems to double-start. Confirmed in 1.3: it only cares about the file path `./App.tsx`, never what's inside it. |
-| `web/src/App.tsx` | known | My component. Renders a title, a description, and a correctly-sized `<canvas>` (buffer at `SIZE * devicePixelRatio`, CSS size pinned at `SIZE`, `ctx.scale` keeps drawing code in `SIZE`-unit coordinates). As of Task 2.1, the actual drawing logic lives in `shared/animation.ts` — this file only handles the ref, effect timing, sizing, and calls `drawGrid(ctx)`. |
+| `web/src/App.tsx` | known | My component. Renders a title, a description, and a correctly-sized `<canvas>` (buffer at `SIZE * devicePixelRatio`, CSS size pinned at `SIZE`, `ctx.scale` keeps drawing code in `SIZE`-unit coordinates). Drawing logic lives in `shared/animation.ts`; this file only handles the ref, effect timing, sizing, and now calls `startLoop(ctx)` (Task 2.2) instead of the one-shot `drawGrid(ctx)`. |
 | `web/src/index.css` | **parked** | Rewrote as a 9-line reset (`color-scheme`, `margin: 0`, a default font) to replace 111 lines of demo styling. Written by me, not yet by you — real styling decisions are Section 3's job. |
 | `web/public/` | known | Files served exactly as-is, no processing. Contains only `favicon.svg` now — `icons.svg` was deleted in 1.3 after confirming nothing referenced it. |
 | `web/vite.config.ts` | known | 7 lines. Tells Vite to load the React plugin so it knows how to handle `.tsx` files. That's the whole file. |

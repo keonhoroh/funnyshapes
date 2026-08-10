@@ -128,7 +128,7 @@ back to where it started), and why the animation module has to be framework-free
       `.ts` file exported from it, and wire it into `App.tsx` via a ref so React
       hands it the canvas but writes none of its logic. *See: proof the module
       runs inside the page, with zero React inside `shared/`.*
-- [ ] **2.2 — Get one frame moving.** A `requestAnimationFrame` loop that shifts
+- [x] **2.2 — Get one frame moving.** A `requestAnimationFrame` loop that shifts
       one shape's position a little more each frame, no trig yet. *See: a shape
       visibly drifting across the canvas.*
 - [ ] **2.3 — Drive one shape with a sine wave.** Swap the drift for

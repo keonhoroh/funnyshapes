@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { SIZE, drawGrid } from '../../shared/animation'
+import { SIZE, startLoop } from '../../shared/animation'
 
 function App() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -19,7 +19,7 @@ function App() {
     canvas.style.height = `${SIZE}px`
     ctx.scale(dpr, dpr)
 
-    drawGrid(ctx)
+    startLoop(ctx)
   }, [])
 
   return (
