@@ -52,8 +52,8 @@ project and technical planning on 2026-08-07.
 | Status | Count |
 |---|---|
 | seed | 38 |
-| introduced | 25 |
-| practicing | 4 |
+| introduced | 23 |
+| practicing | 6 |
 | understood | 2 |
 
 ---
@@ -96,8 +96,8 @@ project and technical planning on 2026-08-07.
 | `tsconfig.json` and compilation | seed | — | — | → S1 |
 | What a build step actually produces | seed | — | — | → S4 |
 | Vite dev server vs production build | seed | — | — | → S4 |
-| Sharing one module across two runtimes | introduced | 2026-08-07 | 2026-08-07 | Said TypeScript is "supported on both platforms we will use to run animations" |
-| Why the animation module must stay framework-free | introduced | 2026-08-07 | 2026-08-07 | Accepted the constraint when React was added to the stack |
+| Sharing one module across two runtimes | practicing | 2026-08-07 | 2026-08-10 | Built `shared/animation.ts` and imported it into `App.tsx`; confirmed via the served module output that it runs with zero React involved |
+| Why the animation module must stay framework-free | practicing | 2026-08-07 | 2026-08-10 | Moved real drawing logic out of the React component into `shared/animation.ts`, keeping only ref/effect/sizing in `App.tsx` |
 
 ### Frontend
 

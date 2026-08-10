@@ -4,7 +4,7 @@
 > it appears. If I cannot say what something is and why it exists, it does not
 > get to sit in my repo unexplained.
 
-**Last updated:** 2026-08-10 (Section 1 complete)
+**Last updated:** 2026-08-10 (Task 2.1)
 
 ---
 
@@ -34,6 +34,8 @@ funnyshapes/
 │   ├── plan.md
 │   ├── knowledge-graph.md
 │   └── file-map.md
+├── shared/
+│   └── animation.ts
 └── web/
     ├── node_modules/          (generated)
     ├── public/
@@ -60,6 +62,8 @@ funnyshapes/
 | `.claude/` | known | Config for the Claude Code CLI I am learning with. Belongs to my tooling, not to the app — the app would run identically without it. |
 | `.claude/settings.local.json` | known | A permissions allowlist so the assistant can run specific commands without asking every time. Currently allows exactly one: `npm --version`. |
 | `claude_test` | known | My personal motivation file. Nothing to do with the app — leave it alone. Currently empty. |
+| `shared/` | known | The framework-free animation module. Plain TypeScript, zero React — has to run standalone in Playwright's Chromium during export in Section 5, not just in the browser. |
+| `shared/animation.ts` | known | Exports `SIZE`, `SHAPE_SIZE`, `GRID_SIZE`, `CELL`, and `drawGrid(ctx)` — the grid-drawing logic moved out of `App.tsx` in Task 2.1. Imported into `App.tsx` via a relative path; Vite serves it because it auto-detects the git repo root as the allowed file-serving boundary, not just `web/`. |
 
 | `.git/` | generated | Created by `git init`. Stores the full commit history. Hidden — invisible to plain `ls`, visible with `ls -a`. Never hand-edit its contents. |
 
@@ -80,7 +84,7 @@ to `known`; the rest stay parked with honest one-liners.
 | `web/index.html` | known | The page the browser loads. Contains an empty `<div id="root"></div>` and one script tag pointing at `main.tsx` — the whole app is built by that script, not written in this HTML. |
 | `web/src/` | known | My application source code. Everything here I will eventually write or delete. |
 | `web/src/main.tsx` | known | Finds the empty `#root` div and tells React to render `<App />` into it. `StrictMode` runs code twice in development only, to surface bugs — worth remembering when Section 2's animation seems to double-start. Confirmed in 1.3: it only cares about the file path `./App.tsx`, never what's inside it. |
-| `web/src/App.tsx` | known | My component. Renders a title, a description, and a correctly-sized `<canvas>` (buffer at `SIZE * devicePixelRatio`, CSS size pinned at `SIZE`, `ctx.scale` keeps drawing code in `SIZE`-unit coordinates). Draws a `GRID_SIZE × GRID_SIZE` grid of `SHAPE_SIZE` blue squares via nested loops, each centered in its own `CELL` by computed `(x, y)` — the Section 1 deliverable. |
+| `web/src/App.tsx` | known | My component. Renders a title, a description, and a correctly-sized `<canvas>` (buffer at `SIZE * devicePixelRatio`, CSS size pinned at `SIZE`, `ctx.scale` keeps drawing code in `SIZE`-unit coordinates). As of Task 2.1, the actual drawing logic lives in `shared/animation.ts` — this file only handles the ref, effect timing, sizing, and calls `drawGrid(ctx)`. |
 | `web/src/index.css` | **parked** | Rewrote as a 9-line reset (`color-scheme`, `margin: 0`, a default font) to replace 111 lines of demo styling. Written by me, not yet by you — real styling decisions are Section 3's job. |
 | `web/public/` | known | Files served exactly as-is, no processing. Contains only `favicon.svg` now — `icons.svg` was deleted in 1.3 after confirming nothing referenced it. |
 | `web/vite.config.ts` | known | 7 lines. Tells Vite to load the React plugin so it knows how to handle `.tsx` files. That's the whole file. |
@@ -102,7 +106,7 @@ appears.** Nothing here counts as documented until then.
 ```
 funnyshapes/
 ├── learning/          # this directory
-├── shared/            # the framework-free animation module — runs in the browser AND in Playwright
+├── shared/            # arrived in Task 2.1 — see the table above
 ├── web/               # React + Vite studio UI
 ├── server/            # Express API, job queue, render pipeline
 ├── package.json       # project verbs and dependencies
@@ -113,7 +117,6 @@ Expected to arrive by section:
 
 - **Section 1** — `web/` scaffold, `package.json`, `tsconfig.json`, `.gitignore`,
   `node_modules/` (generated), `web/dist/` (generated)
-- **Section 2** — `shared/` and the animation module
 - **Section 3** — CSS, palette definitions, URL state encoding
 - **Section 4** — `server/` and the Express entry point
 - **Section 5** — the render script, a frames scratch directory (generated)

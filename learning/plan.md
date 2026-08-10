@@ -124,7 +124,7 @@ back to where it started), and why the animation module has to be framework-free
 
 **Tasks**
 
-- [ ] **2.1 — Stand up the framework-free module.** Create `shared/`, a plain
+- [x] **2.1 — Stand up the framework-free module.** Create `shared/`, a plain
       `.ts` file exported from it, and wire it into `App.tsx` via a ref so React
       hands it the canvas but writes none of its logic. *See: proof the module
       runs inside the page, with zero React inside `shared/`.*
