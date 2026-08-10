@@ -45,16 +45,16 @@ of the build plan." Dates are `YYYY-MM-DD`.
 
 ## Current state
 
-**Nothing is `understood` yet, and that is correct** — no quiz has happened. The
-`introduced` entries are the things walked through during project and technical
-planning on 2026-08-07.
+Two concepts reached `understood` on 2026-08-10, via the Section 1 explain-back
+question. The `introduced` entries are mostly things walked through during
+project and technical planning on 2026-08-07.
 
 | Status | Count |
 |---|---|
-| seed | 39 |
-| introduced | 24 |
-| practicing | 6 |
-| understood | 0 |
+| seed | 38 |
+| introduced | 25 |
+| practicing | 4 |
+| understood | 2 |
 
 ---
 
@@ -103,9 +103,9 @@ planning on 2026-08-07.
 
 | Concept | Status | Introduced | Reviewed | Evidence |
 |---|---|---|---|---|
-| The DOM as a tree of elements | seed | — | — | → S1 |
-| Canvas element vs its 2D drawing context | practicing | 2026-08-07 | 2026-08-07 | Edited real code (`fillStyle = 'blue'`) and confirmed a blue square rendered in the browser; predicted correctly that an invalid color would fall back to black |
-| Canvas CSS size vs pixel size, devicePixelRatio | practicing | 2026-08-10 | 2026-08-10 | Wrote the real buffer/style/scale code correctly from a skeleton; first explanation conflated `ctx.scale`'s job with the CSS pinning's job, corrected after a concrete numeric walkthrough |
+| The DOM as a tree of elements | introduced | 2026-08-10 | 2026-08-10 | Defined it, then correctly used it to contrast canvas: "A regular DOM element can be modified by adjusting its properties," canvas cannot |
+| Canvas element vs its 2D drawing context | understood | 2026-08-10 | 2026-08-10 | Section 1 explain-back: "when we call fillRect, instead of creating an object representing a rectangle, it merely fills the pixels and trashes the involvement of any rectangle" — correct, own words |
+| Canvas CSS size vs pixel size, devicePixelRatio | understood | 2026-08-10 | 2026-08-10 | Section 1 explain-back: unprompted, correctly gave the reason as accounting for different devices' devicePixelRatio |
 | The event loop and `requestAnimationFrame` | seed | — | — | → S2 |
 | Frame timing and delta time | seed | — | — | → S2 |
 | React components and props | practicing | 2026-08-07 | 2026-08-07 | Edited and saved real JSX content in `App.tsx` (title + description) into a component I scaffolded; rendered correctly in the running dev server |

@@ -122,6 +122,26 @@ frame 180 must be indistinguishable from frame 0, which constrains the math.
 **Should be able to explain:** why the loop is seamless (what makes the math come
 back to where it started), and why the animation module has to be framework-free.
 
+**Tasks**
+
+- [ ] **2.1 — Stand up the framework-free module.** Create `shared/`, a plain
+      `.ts` file exported from it, and wire it into `App.tsx` via a ref so React
+      hands it the canvas but writes none of its logic. *See: proof the module
+      runs inside the page, with zero React inside `shared/`.*
+- [ ] **2.2 — Get one frame moving.** A `requestAnimationFrame` loop that shifts
+      one shape's position a little more each frame, no trig yet. *See: a shape
+      visibly drifting across the canvas.*
+- [ ] **2.3 — Drive one shape with a sine wave.** Swap the drift for
+      `Math.sin`-based motion on one shape. *See: one shape oscillating back and
+      forth smoothly.*
+- [ ] **2.4 — Apply the sine field to the whole grid.** Every cell's offset
+      driven by sine, based on its row/col position and time. *See: the grid
+      rippling like a wave.*
+- [ ] **2.5 — Make the loop seamless.** Constrain the timing so frame N and the
+      frame one full period later are identical, with no visible jump on repeat.
+      *See: the Section 2 deliverable — a wave tile animating and looping
+      seamlessly.*
+
 ---
 
 ### Section 3 — The studio
