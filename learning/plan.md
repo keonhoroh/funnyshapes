@@ -134,7 +134,7 @@ back to where it started), and why the animation module has to be framework-free
 - [x] **2.3 — Drive one shape with a sine wave.** Swap the drift for
       `Math.sin`-based motion on one shape. *See: one shape oscillating back and
       forth smoothly.*
-- [ ] **2.4 — Apply the sine field to the whole grid.** Every cell's offset
+- [x] **2.4 — Apply the sine field to the whole grid.** Every cell's offset
       driven by sine, based on its row/col position and time. *See: the grid
       rippling like a wave.*
 - [ ] **2.5 — Make the loop seamless.** Constrain the timing so frame N and the
