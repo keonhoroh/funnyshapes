@@ -70,7 +70,7 @@ are mostly things walked through during project and technical planning on
 | Loops and iteration | practicing | 2026-08-10 | 2026-08-10 | Correctly predicted 400/5 cell math, then wrote a nested-loop `x`/`y` computation combining Task 1.6's centering formula with a per-cell `col * CELL` / `row * CELL` offset, producing a working 5×5 grid |
 | Conditionals and boolean logic | seed | — | — | → S1 |
 | Arrays and `map` / `filter` / `reduce` | seed | — | — | → S2 |
-| Objects, destructuring, spread | introduced | 2026-08-10 | 2026-08-10 | Array destructuring specifically: asked what `const [amplitude, setAmplitude] = useState(15)` does, then had it explained — not yet self-written |
+| Objects, destructuring, spread | practicing | 2026-08-10 | 2026-08-12 | Task 3.2: after one explanation of `{ ...params, field: value }`, wrote it correctly and independently across 4 more slider handlers (`gridSize`, `waveFrequency`, `phaseSpeed`, `shapeSize`), each updating one field while preserving the rest |
 | Pure functions vs side effects | seed | — | — | → S2 |
 | Immutability and why it matters in React | seed | — | — | → S3 |
 | `null` / `undefined` and optional values | seed | — | — | → S4 |
