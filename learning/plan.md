@@ -170,7 +170,7 @@ not control, and why the URL is a legitimate place to store state.
 - [x] **3.2 — Wire the remaining numeric parameters.** Grid density, wave
       frequency, phase speed, and shape size, using the same bridge pattern.
       *See: all five numeric parameters live-adjustable.*
-- [ ] **3.3 — Build the palette picker.** Five hand-tuned color palettes and a
+- [x] **3.3 — Build the palette picker.** Five hand-tuned color palettes and a
       picker control to choose between them — a discrete choice, not a slider.
       *See: switching palettes recolors the pattern instantly.*
 - [ ] **3.4 — Encode the full config into the URL.** Read initial parameter

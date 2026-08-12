@@ -8,14 +8,32 @@ type Params = {
   waveFrequency: number
   phaseSpeed: number
   shapeSize: number
+  paletteIndex: number
 }
+
+type Palette = {
+  background: string
+  shape: string
+}
+
+// TODO(you): pick 5 background/shape color combos you like.
+export const PALETTES: Palette[] = [
+  { background: '#562266', shape: '#C527F5' },
+  { background: '#0F24FF', shape: '#0900FF' },
+  { background: '#FFC300', shape: '#FF9D00' },
+  { background: '#2D9600', shape: '#80BA68' },
+  { background: '#D1005D', shape: '#DB4B8B' },
+]
 
 export function startLoop(ctx: CanvasRenderingContext2D, paramsRef: { current: Params }) {
   let frameIndex = 0 // which frame of the loop we're on, 0 up to LOOP_FRAMES - 1
 
   function frame() {
     ctx.clearRect(0, 0, SIZE, SIZE) // erase the previous frame
-    ctx.fillStyle = 'blue'
+    const palette = PALETTES[paramsRef.current.paletteIndex]
+    ctx.fillStyle = palette.background
+    ctx.fillRect(0, 0, SIZE, SIZE)
+    ctx.fillStyle = palette.shape
 
     const angle = (frameIndex / LOOP_FRAMES) * paramsRef.current.waveFrequency * 2 * Math.PI
     const cell = SIZE / paramsRef.current.gridSize
