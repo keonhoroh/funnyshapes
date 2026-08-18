@@ -1,17 +1,41 @@
 import { useEffect, useRef, useState } from 'react'
 import { SIZE, startLoop } from '../../shared/animation'
 
+function getInitialParams() {
+  const amplitude = new URLSearchParams(window.location.search).get('amplitude') || 15
+  const gridSize = new URLSearchParams(window.location.search).get('gridSize') || 5
+  const waveFrequency = new URLSearchParams(window.location.search).get('waveFrequency') || 1
+  const phaseSpeed = new URLSearchParams(window.location.search).get('phaseSpeed') || 0.5
+  const shapeSize = new URLSearchParams(window.location.search).get('shapeSize') || 40
+  const paletteIndex = new URLSearchParams(window.location.search).get('paletteIndex') || 0
+
+  return {
+    amplitude: Number(amplitude),
+    gridSize: Number(gridSize),
+    waveFrequency: Number(waveFrequency),
+    phaseSpeed: Number(phaseSpeed),
+    shapeSize: Number(shapeSize),
+    paletteIndex: Number(paletteIndex),
+  }
+}
+
 function App() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [params, setParams] = useState({
-    amplitude: 15,
-    gridSize: 5,
-    waveFrequency: 1,
-    phaseSpeed: 0.5,
-    shapeSize: 40,
-    paletteIndex: 0,
-  })
+  const [params, setParams] = useState(getInitialParams)
   const paramsRef = useRef(params)
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams()
+    searchParams.set('amplitude', String(params.amplitude))
+    searchParams.set('gridSize', String(params.gridSize))
+    searchParams.set('waveFrequency', String(params.waveFrequency))
+    searchParams.set('phaseSpeed', String(params.phaseSpeed))
+    searchParams.set('shapeSize', String(params.shapeSize))
+    searchParams.set('paletteIndex', String(params.paletteIndex))
+
+    const newUrl = `${window.location.pathname}?${searchParams.toString()}`
+    window.history.replaceState(null, '', newUrl)
+  }, [params])
 
   useEffect(() => {
     paramsRef.current = params

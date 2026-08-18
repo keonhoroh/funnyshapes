@@ -68,7 +68,7 @@ are mostly things walked through during project and technical planning on
 | Type inference vs explicit types | seed | — | — | → S1 |
 | Functions, parameters, return values | seed | — | — | → S1 |
 | Loops and iteration | practicing | 2026-08-10 | 2026-08-10 | Correctly predicted 400/5 cell math, then wrote a nested-loop `x`/`y` computation combining Task 1.6's centering formula with a per-cell `col * CELL` / `row * CELL` offset, producing a working 5×5 grid |
-| Conditionals and boolean logic | seed | — | — | → S1 |
+| Conditionals and boolean logic | introduced | 2026-08-17 | 2026-08-17 | Task 3.4: after tracing why `Number(url.get('amplitude')) || 15` silently discards a real `0` (converts to the falsy number `0` before the `||` check) while `url.get('amplitude') || 15` does not (the non-empty string `"0"` is truthy), correctly identified their own code used the safe ordering |
 | Arrays and `map` / `filter` / `reduce` | seed | — | — | → S2 |
 | Objects, destructuring, spread | practicing | 2026-08-10 | 2026-08-12 | Task 3.2: after one explanation of `{ ...params, field: value }`, wrote it correctly and independently across 4 more slider handlers (`gridSize`, `waveFrequency`, `phaseSpeed`, `shapeSize`), each updating one field while preserving the rest |
 | Pure functions vs side effects | seed | — | — | → S2 |
@@ -120,7 +120,7 @@ are mostly things walked through during project and technical planning on
 | CSS layout: flexbox and grid | seed | — | — | → S3 |
 | CSS custom properties | seed | — | — | → S3 |
 | Colour spaces and why palettes look muddy | seed | — | — | → S3 |
-| URL and query params as application state | introduced | 2026-08-07 | 2026-08-07 | Accepted URL-as-state as the reason accounts stay out of the MVP |
+| URL and query params as application state | practicing | 2026-08-07 | 2026-08-17 | Task 3.4: wrote `getInitialParams` (reads all 6 fields via `URLSearchParams.get`, as a `useState` lazy initializer) and a `useEffect` that writes them back with `URLSearchParams.set`/`.toString()` and `history.replaceState`, keyed to `[params]` so it fires on load and every change |
 
 ### Backend and data
 

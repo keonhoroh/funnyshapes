@@ -173,7 +173,7 @@ not control, and why the URL is a legitimate place to store state.
 - [x] **3.3 — Build the palette picker.** Five hand-tuned color palettes and a
       picker control to choose between them — a discrete choice, not a slider.
       *See: switching palettes recolors the pattern instantly.*
-- [ ] **3.4 — Encode the full config into the URL.** Read initial parameter
+- [x] **3.4 — Encode the full config into the URL.** Read initial parameter
       values from the URL on load, and keep the URL in sync as parameters
       change. *See: reload the page and the exact same loop comes back; paste
       the URL elsewhere and get the same result.*
