@@ -63,65 +63,93 @@ function App() {
     <main>
       <h1>cool wave</h1>
       <p>high-res wave effect generator</p>
+      <div className="studio">
       <canvas ref={canvasRef} />
-      <input
-        type="range"
-        min={0}
-        max={40}
-        value={params.amplitude}
-        onChange={(event) => {
-          setParams({ ...params, amplitude: Number(event.target.value)})
-        }}
-      />
-      <input
-        type="range"
-        min={1}
-        max={15}
-        value={params.gridSize}
-        onChange={(event) => {
-          setParams({ ...params, gridSize: Number(event.target.value)})
-        }}
-      />
-      <input
-        type="range"
-        min={1}
-        max={3}
-        value={params.waveFrequency}
-        onChange={(event) => {
-          setParams({ ...params, waveFrequency: Number(event.target.value)})
-        }}
-      />
-      <input
-        type="range"
-        min={0.5}
-        max={1.5}
-        step={0.1}
-        value={params.phaseSpeed}
-        onChange={(event) => {
-          setParams({ ...params, phaseSpeed: Number(event.target.value)})
-        }}
-      />
-      <input
-        type="range"
-        min={20}
-        max={50}
-        value={params.shapeSize}
-        onChange={(event) => {
-          setParams({ ...params, shapeSize: Number(event.target.value)})
-        }}
-      />
-      <select
-        value={params.paletteIndex}
-        onChange={(event) => {
-          setParams({ ...params, paletteIndex: Number(event.target.value)})
-        }}
-      >
-        <option value={0}>Purple</option>
-        <option value={1}>Blue</option>
-        <option value={2}>Yellow</option>
-        <option value={3}>Green</option>
-        <option value={4}>Pink</option>
-      </select>
+      <div className="controls">
+      <div className="control">
+        <label htmlFor="amplitude">Amplitude</label>
+        <input
+          id="amplitude"
+          type="range"
+          min={0}
+          max={40}
+          value={params.amplitude}
+          onChange={(event) => {
+            setParams({ ...params, amplitude: Number(event.target.value)})
+          }}
+        />
+      </div>
+      <div className="control">
+        <label htmlFor="gridSize">Grid Size</label>
+        <input
+          id="gridSize"
+          type="range"
+          min={1}
+          max={15}
+          value={params.gridSize}
+          onChange={(event) => {
+            setParams({ ...params, gridSize: Number(event.target.value)})
+          }}
+        />
+      </div>
+      <div className="control">
+        <label htmlFor="waveFrequency">Wave Frequency</label>
+        <input
+          id="waveFrequency"
+          type="range"
+          min={1}
+          max={3}
+          value={params.waveFrequency}
+          onChange={(event) => {
+            setParams({ ...params, waveFrequency: Number(event.target.value)})
+          }}
+        />
+      </div>
+      <div className="control">
+        <label htmlFor="phaseSpeed">Phase Speed</label>
+        <input
+          id="phaseSpeed"
+          type="range"
+          min={0.5}
+          max={1.5}
+          step={0.1}
+          value={params.phaseSpeed}
+          onChange={(event) => {
+            setParams({ ...params, phaseSpeed: Number(event.target.value)})
+          }}
+        />
+      </div>
+      <div className="control">
+        <label htmlFor="shapeSize">Shape Size</label>
+        <input
+          id="shapeSize"
+          type="range"
+          min={20}
+          max={50}
+          value={params.shapeSize}
+          onChange={(event) => {
+            setParams({ ...params, shapeSize: Number(event.target.value)})
+          }}
+        />
+      </div>
+      <div className="control">
+        <label htmlFor="paletteIndex">Palette Index</label>
+        <select
+          id="paletteIndex"
+          value={params.paletteIndex}
+          onChange={(event) => {
+            setParams({ ...params, paletteIndex: Number(event.target.value)})
+          }}
+        >
+          <option value={0}>Purple</option>
+          <option value={1}>Blue</option>
+          <option value={2}>Yellow</option>
+          <option value={3}>Green</option>
+          <option value={4}>Pink</option>
+        </select>
+      </div>
+      </div>
+      </div>
     </main>
   )
 }
