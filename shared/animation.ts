@@ -16,13 +16,12 @@ type Palette = {
   shape: string
 }
 
-// TODO(you): pick 5 background/shape color combos you like.
 export const PALETTES: Palette[] = [
-  { background: '#562266', shape: '#C527F5' },
-  { background: '#0F24FF', shape: '#0900FF' },
-  { background: '#FFC300', shape: '#FF9D00' },
-  { background: '#2D9600', shape: '#80BA68' },
-  { background: '#D1005D', shape: '#DB4B8B' },
+  { background: '#0b3d3c', shape: '#ff6b4a' }, // deep teal / coral
+  { background: '#0a0a0a', shape: '#ccff00' }, // near-black / chartreuse
+  { background: '#f5efe6', shape: '#2e1a47' }, // warm cream / deep indigo
+  { background: '#c41e6d', shape: '#ffd23f' }, // magenta / gold
+  { background: '#14331f', shape: '#ffb997' }, // forest green / peach
 ]
 
 export function startLoop(ctx: CanvasRenderingContext2D, paramsRef: { current: Params }) {

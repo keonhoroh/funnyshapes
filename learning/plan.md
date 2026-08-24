@@ -177,7 +177,7 @@ not control, and why the URL is a legitimate place to store state.
       values from the URL on load, and keep the URL in sync as parameters
       change. *See: reload the page and the exact same loop comes back; paste
       the URL elsewhere and get the same result.*
-- [ ] **3.5 — A real CSS pass.** Layout, spacing, typography, and color for the
+- [x] **3.5 — A real CSS pass.** Layout, spacing, typography, and color for the
       studio interface itself — not the generated pattern. *See: a page that
       looks like a considered product, not a scaffold.*
 - [ ] **3.6 — Deploy the static frontend.** Live, even with no backend yet.

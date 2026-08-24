@@ -1,11 +1,38 @@
 :root {
-  color-scheme: light;
+  color-scheme: dark;
+  --font-size-title: 2rem;
+  --font-size-label: 0.85rem;
+  --background-color-page: #121218;
+  --title-color: #8b5cf6;
+  --description-color: #b4b4c0;
+  --studio-control-color: #38bdf8;
 }
+
+h1 {
+  font-size: var(--font-size-title);
+  font-weight: 700;
+  color: var(--title-color);
+  margin: 0;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--description-color);
+  margin: 0;
+}
+
+label {
+  font-size: var(--font-size-label);
+  font-weight: 600;
+}
+
 
 body {
   margin: 0;
   min-height: 100vh;
   font-family: system-ui, sans-serif;
+  background-color: var(--background-color-page);
 }
 
 main {
@@ -25,6 +52,7 @@ main {
 .controls {
   display: flex;
   flex-direction: column;
+  color: var(--studio-control-color);
   gap: 1rem;
 }
 

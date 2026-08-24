@@ -61,7 +61,7 @@ function App() {
 
   return (
     <main>
-      <h1>cool wave</h1>
+      <h1>waves.</h1>
       <p>high-res wave effect generator</p>
       <div className="studio">
       <canvas ref={canvasRef} />
@@ -141,11 +141,11 @@ function App() {
             setParams({ ...params, paletteIndex: Number(event.target.value)})
           }}
         >
-          <option value={0}>Purple</option>
-          <option value={1}>Blue</option>
-          <option value={2}>Yellow</option>
-          <option value={3}>Green</option>
-          <option value={4}>Pink</option>
+          <option value={0}>Teal / Coral</option>
+          <option value={1}>Noir / Chartreuse</option>
+          <option value={2}>Cream / Indigo</option>
+          <option value={3}>Magenta / Gold</option>
+          <option value={4}>Forest / Peach</option>
         </select>
       </div>
       </div>
